@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
                     if (numInput.length() == 8) {
                         if ((grpInput.getText().toString() != null) && (Integer.parseInt(grpInput.getText().toString()) >= 1)) {
 
-                            String reservation = String.format("Name: %s | Contact: %d | Pax: %d | ", nameInput.getText().toString(), Integer.parseInt(numInput.getText().toString()), Integer.parseInt(grpInput.getText().toString()));
+                            String reservation;
+                            reservation = String.format("Name: %s | Contact: %d | Pax: %d | ", nameInput.getText().toString(), Integer.parseInt(numInput.getText().toString()), Integer.parseInt(grpInput.getText().toString()));
 
                             if (smokingRG.getCheckedRadioButtonId() == R.id.radioBtnNoSmoke) {
                                 reservation += "Non-Smoking Area | ";
@@ -109,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                     LocalDate currDate = LocalDate.now(ZoneId.systemDefault());
-                    System.out.println(currDate);
+
                     LocalDate chosenDate = LocalDate.of(year,monthOfYear + 1, dayOfMonth);
+
                     if(chosenDate.isBefore(currDate)){
                         dp.updateDate(currDate.getYear(),currDate.getMonthValue(),currDate.getDayOfMonth() + 1);
                     }
