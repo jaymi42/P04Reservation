@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         btnConfirm = findViewById(R.id.buttonConfirm);
         btnReset = findViewById(R.id.buttonReset);
 
-        dp.updateDate(2020, 7, 1);
+        
+        dp.updateDate(2023, 7, 1);
         tp.setCurrentHour(19);
         tp.setCurrentMinute(30);
 
@@ -82,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Field Incomplete", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Field Incomplete", Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Field Incomplete", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -111,14 +112,29 @@ public class MainActivity extends AppCompatActivity {
 
                     LocalDate currDate = LocalDate.now(ZoneId.systemDefault());
 
-                    LocalDate chosenDate = LocalDate.of(year,monthOfYear + 1, dayOfMonth);
+                    LocalDate selectedDate = LocalDate.of(year, monthOfYear + 1, dayOfMonth);
 
-                    if(chosenDate.isBefore(currDate)){
-                        dp.updateDate(currDate.getYear(),currDate.getMonthValue(),currDate.getDayOfMonth() + 1);
+                    if(selectedDate.isBefore(currDate)){
+                        dp.updateDate(currDate.getYear(), currDate.getMonthValue(), currDate.getDayOfMonth() + 1);
                     }
                 }
             });
         }
+        
+         btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nameInput.setText("");
+                numInput.setText("");
+                grpInput.setText("");
+                smokingRG.clearCheck();
+                dp.updateDate(2023, 5,1);
+                tp.setIs24HourView(true);
+                tp.setCurrentHour(19);
+                tp.setCurrentMinute(30);
+
+            }
+        });
 
 
     }
