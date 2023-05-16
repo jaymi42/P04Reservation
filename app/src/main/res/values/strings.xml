@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">P04Reservation</string>
+    <string name="name">Name:</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="contact_no">Contact No:</string>
+    <string name="please_enter_contact_number">Please enter contact number</string>
+    <string name="group_size">Group Size:</string>
+    <string name="please_enter_group_size">Please enter group size</string>
+    <string name="select_table_area">Select table area:</string>
+    <string name="smoking_area">Smoking Area</string>
+    <string name="non_smoking_area">Non-Smoking Area</string>
+    <string name="confirm">Confirm</string>
+    <string name="reset">Reset</string>
+    <string name="reserve_a_table">Reserve a Table</string>
+</resources>
